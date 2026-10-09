@@ -35,14 +35,17 @@ public class MainMenu {
                     return;
 
                 case 1:
+                    clearScreen();
                     comingSoon();
                     break;
 
                 case 2:
+                    clearScreen();
                     comingSoon();
                     break;
                 
                 case 3:
+                    clearScreen();
                     comingSoon();
                     break;
             
