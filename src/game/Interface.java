@@ -6,12 +6,11 @@ import java.util.Scanner;
 
 public class Interface {
     private PrintStream ps = System.out;
-    private Scanner sc = new Scanner(System.in);
     private ArrayList<Game> gamelist = new ArrayList<>();
 
     public Interface(){}
 
-    public void addGame(){
+    public void addGame(Scanner sc){
     ps.print("Title: ");
     String title = sc.nextLine();
     ps.print("Genre: ");
@@ -47,8 +46,8 @@ public class Interface {
         
     }
 
-    public void removeGame(){
-        
+    public void removeGame(Scanner sc){
+
     }
 
 }

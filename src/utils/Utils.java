@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Utils {
     private static PrintStream ps = System.out;
-    private static Scanner sc = new Scanner(System.in);
 
     public static void comingSoon() throws InterruptedException {
         ps.print("[W.I.P]Coming Soon.....");
@@ -16,7 +15,7 @@ public class Utils {
         ps.flush();
     }
 
-    public static void enterContinue(){
+    public static void enterContinue(Scanner sc){
         ps.print("Press Enter To Return To Main Menu...");
         sc.nextLine(); 
     }

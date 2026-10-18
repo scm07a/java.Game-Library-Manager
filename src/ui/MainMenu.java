@@ -38,7 +38,7 @@ public class MainMenu {
 
                 case 1:
                     Utils.clearScreen();
-                    gameInterface.addGame();
+                    gameInterface.addGame(sc);
                     break;
 
                 case 2:
