@@ -43,7 +43,7 @@ public class MainMenu {
 
                 case 2:
                     Utils.clearScreen();
-                    gameInterface.showAllGames();
+                    gameInterface.showAllGames(sc);
                     break;
                 
                 case 3:
