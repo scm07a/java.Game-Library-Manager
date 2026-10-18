@@ -10,6 +10,7 @@ class Game {
     protected double price;
 
     public Game(String title, String genre, double price, String dev, String pub){
+        id = nextID;
         this.title = title;
         this.genre = genre;
         this.price = price;
@@ -18,7 +19,6 @@ class Game {
     }
 
     protected void incrementID(){
-        id=nextID;
         nextID++;
     }
 

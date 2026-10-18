@@ -22,8 +22,8 @@ public class Interface {
     ps.print("Publisher: ");
     String pub = sc.nextLine();
     ps.print("Price: ");
-    double price = Double.parseDouble(sc.nextLine());
     try{
+        double price = Double.parseDouble(sc.nextLine());
         Game gm = new Game(title, genre, price, dev, pub);
         gm.incrementID();
         gamelist.add(gm);
@@ -57,11 +57,12 @@ public class Interface {
         
     }
 
-    public void removeGame(Scanner sc)throws InterruptedException{
+    public void removeGame(Scanner sc)throws InterruptedException{ // TODO: Broken Method Remember To Fix 
         if (gamelist.isEmpty()){
             ps.println("Empty List...");
             return;
         }
+        A:
         while (true){
             ps.print("Enter The ID Of The Game To Remove: ");
             int choice = sc.nextInt();
@@ -70,13 +71,15 @@ public class Interface {
                     ps.println("Invalid Input...");
                     break;
                 }
-                if (gm.getID() == choice){ 
+                // TODO: Implement Search Algo In A Method 
+                if (gm.getID() == choice){
+                    
                     gamelist.remove(gm);
                     ps.println("Game Removed Successfully...");
                     Thread.sleep(1000);
-                    break;
+                    break A;
                 }
-                else{
+                else {
                     ps.println("No Game Exists With That ID In The Library...");
                     Thread.sleep(1000);
                     break;
