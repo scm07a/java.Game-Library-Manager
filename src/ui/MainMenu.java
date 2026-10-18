@@ -24,6 +24,7 @@ public class MainMenu {
             showMainMenu();
             ps.print("Choice: ");
             choices = sc.nextInt();
+            sc.nextLine();
             switch (choices) {
                 case 0:
                     Utils.clearScreen();

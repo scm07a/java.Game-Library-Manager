@@ -2,6 +2,7 @@ package game;
 
 class Game {
     private int id = 0;
+    private int nextID = 1;
     protected String title;
     protected String genre;
     protected String dev;
@@ -17,7 +18,8 @@ class Game {
     }
 
     protected void incrementID(){
-        id+=1;
+        id=nextID;
+        nextID++;
     }
 
     public int getID(){

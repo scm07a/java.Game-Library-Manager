@@ -70,14 +70,16 @@ public class Interface {
                     ps.println("Invalid Input...");
                     break;
                 }
-                if (gm.getID() == choice){
+                if (gm.getID() == choice){ 
                     gamelist.remove(gm);
                     ps.println("Game Removed Successfully...");
                     Thread.sleep(1000);
+                    break;
                 }
                 else{
                     ps.println("No Game Exists With That ID In The Library...");
                     Thread.sleep(1000);
+                    break;
                 }
             }
         }
