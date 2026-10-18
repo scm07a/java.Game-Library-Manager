@@ -27,6 +27,7 @@ public class MainMenu {
             switch (choices) {
                 case 0:
                     while (true){
+                        Utils.clearScreen();
                         ps.print("Are You Sure You Want To Exit?(Y/n): ");
                         String e=sc.next().trim().toLowerCase();
                         if(e.equals("y")) return;
