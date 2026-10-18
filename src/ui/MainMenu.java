@@ -32,8 +32,8 @@ public class MainMenu {
                         if(e.equals("y")) return;
                         else if (e.equals("n")) break;
                         else ps.println("Invalid Input Try Again");
-                        
                     }
+                    break;
 
                 case 1:
                     Utils.clearScreen();
