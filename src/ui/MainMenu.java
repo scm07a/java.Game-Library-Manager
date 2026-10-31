@@ -1,50 +1,43 @@
 package ui;
-import java.io.PrintStream;
-import java.util.Scanner;
 import utils.Utils;
 import game.Interface;
 
 public class MainMenu {
-    private PrintStream ps = System.out;
-    private Scanner sc = new Scanner(System.in);
-    private int choices = 0;
     private Interface gameInterface = new Interface();
     
     public void showMainMenu(){
         Utils.clearScreen();
-        ps.println("=== Game Library Manager ===");
-        ps.println("0. Exit");
-        ps.println("1. Add Game");
-        ps.println("2. Show Games");
-        ps.println("3. Remove Game");
+        IO.println("=== Game Library Manager ===");
+        IO.println("0. Exit");
+        IO.println("1. Add Game");
+        IO.println("2. Show Games");
+        IO.println("3. Remove Game");
     }
 
     public void exec() throws InterruptedException{
         while (true){
             showMainMenu();
-            ps.print("Choice: ");
-            choices = sc.nextInt();
-            sc.nextLine();
+            int choices = Integer.parseInt(IO.readln("Choice: "));
             switch (choices) {
                 case 0:
                     Utils.clearScreen();
                     while (true){
-                        ps.print("Are You Sure You Want To Exit?(Y/n): ");
-                        String e=sc.next().trim().toLowerCase();
+                        IO.print("Are You Sure You Want To Exit?(Y/n): ");
+                        String e=IO.readln().trim().toLowerCase();
                         if(e.equals("y")) return;
                         else if (e.equals("n")) break;
-                        else ps.println("Invalid Input Try Again");
+                        else IO.println("Invalid Input Try Again");
                     }
                     break;
 
                 case 1:
                     Utils.clearScreen();
-                    gameInterface.addGame(sc);
+                    gameInterface.addGame();
                     break;
 
                 case 2:
                     Utils.clearScreen();
-                    gameInterface.showAllGames(sc);
+                    gameInterface.showAllGames();
                     break;
                 
                 case 3:
@@ -53,7 +46,7 @@ public class MainMenu {
                     break;
             
                 default:
-                    ps.println("Invalid Input");
+                    IO.println("Invalid Input");
                     break;
             }
         }

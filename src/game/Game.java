@@ -1,8 +1,7 @@
 package game;
 
 class Game {
-    private int id = 0;
-    private int nextID = 1;
+    private int id;
     protected String title;
     protected String genre;
     protected String dev;
@@ -10,7 +9,7 @@ class Game {
     protected double price;
 
     public Game(String title, String genre, double price, String dev, String pub){
-        id = nextID;
+        this.id=0;
         this.title = title;
         this.genre = genre;
         this.price = price;
@@ -18,8 +17,8 @@ class Game {
         this.pub = pub;
     }
 
-    protected void incrementID(){
-        nextID++;
+    void incrementID(){
+        id++;
     }
 
     public int getID(){

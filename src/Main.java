@@ -1,10 +1,10 @@
 import ui.MainMenu;
 void main(){
     try{
-        MainMenu menu = new MainMenu();
-        menu.exec();
+        MainMenu app = new MainMenu();
+        app.exec();
     }
     catch(Exception e){
-        System.err.println(e.getMessage());
+        IO.println(e.getMessage());
     }
 }

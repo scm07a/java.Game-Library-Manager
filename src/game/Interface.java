@@ -1,86 +1,81 @@
 package game;
 
-import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import utils.Utils;
 
 public class Interface {
-    private PrintStream ps = System.out;
     private ArrayList<Game> gamelist = new ArrayList<>();
+    private String buff = "";
 
     public Interface(){}
+    public void addGame()throws InterruptedException{
 
-    public void addGame(Scanner sc)throws InterruptedException{
-    ps.print("Title: ");
-    String title = sc.nextLine();
-    ps.print("Genre: ");
-    String genre = sc.nextLine();
-    ps.print("Developer: ");
-    String dev = sc.nextLine();
-    ps.print("Publisher: ");
-    String pub = sc.nextLine();
-    ps.print("Price: ");
+    String title = IO.readln("Title: ");
+    String genre = IO.readln("Genre: ");
+    String dev = IO.readln("Developer: ");
+    String pub = IO.readln("Publisher: ");
     try{
-        double price = Double.parseDouble(sc.nextLine());
+        double price = Double.parseDouble(IO.readln("Price: $"));
         Game gm = new Game(title, genre, price, dev, pub);
         gm.incrementID();
         gamelist.add(gm);
-        ps.println("Game Added Successfully...");
+        IO.println("Game Added Successfully...");
         Thread.sleep(1000);
     }
     catch(Exception e){
-        ps.println(e.getMessage());
+        IO.println(e.getMessage());
     }
     }
 
     private void printGame(Game gm){
-        ps.println("Game ID:"+gm.getID());
-        ps.println("Title:"+gm.title);
-        ps.println("Genre:"+gm.genre);
-        ps.println("Price:"+gm.price);
-        ps.println("Developer:"+gm.dev);
-        ps.println("Publisher:"+gm.pub);
-        ps.println();
+        IO.println("Game ID:"+gm.getID());
+        IO.println("Title:"+gm.title);
+        IO.println("Genre:"+gm.genre);
+        IO.println("Price:"+gm.price);
+        IO.println("Developer:"+gm.dev);
+        IO.println("Publisher:"+gm.pub);
+        IO.println();
     }
 
-    public void showAllGames(Scanner sc){
+    public void showAllGames(){
         if (gamelist.isEmpty()){
-            ps.println("Empty List...");
+            IO.println("Empty List...");
             return;
         }
         for (Game games: gamelist){
             printGame(games);
         }
-        Utils.enterContinue(sc);
+        Utils.enterContinue();
         
     }
 
-    public void removeGame(Scanner sc)throws InterruptedException{ // TODO: Broken Method Remember To Fix 
+    public void removeGame()throws InterruptedException{ // TODO: Broken Method Remember To Fix 
         if (gamelist.isEmpty()){
-            ps.println("Empty List...");
+            IO.println("Empty List...");
             return;
         }
         A:
         while (true){
-            ps.print("Enter The ID Of The Game To Remove: ");
-            int choice = sc.nextInt();
+            buff=IO.readln("Enter The ID Of The Game To Remove: ");
+            int choice = Integer.parseInt(buff);
             for (final Game gm: gamelist){
+
                 if(choice<=0 || choice>gm.getID()){
-                    ps.println("Invalid Input...");
+                    IO.println("Invalid Input...");
                     break;
                 }
+                
                 // TODO: Implement Search Algo In A Method 
                 if (gm.getID() == choice){
                     
                     gamelist.remove(gm);
-                    ps.println("Game Removed Successfully...");
+                    IO.println("Game Removed Successfully...");
                     Thread.sleep(1000);
                     break A;
                 }
                 else {
-                    ps.println("No Game Exists With That ID In The Library...");
+                    IO.println("No Game Exists With That ID In The Library...");
                     Thread.sleep(1000);
                     break;
                 }
