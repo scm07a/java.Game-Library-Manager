@@ -58,43 +58,43 @@ public class Interface {
             IO.println("Empty List...");
             return;
         }
-        A:
         while (true){
             for (Game games: gamelist)
-            printGame(games);
-            buff=IO.readln("Enter The ID Of The Game To Remove: ");
+                printGame(games);
+            buff=IO.readln("Enter The ID Of The Game To Remove (0 to cancel): ");
             int choice = Integer.parseInt(buff);
-            for (final Game gm: gamelist){
 
-                if(choice<=0){
-                    IO.println("Invalid Input...");
-                    break;
-                }
-                if (findID(choice)!=-1){
-                    gamelist.remove(gm);
-                    IO.println("Game Removed Successfully...");
-                    Thread.sleep(1000);
-                    break A;
-                }
-                else {
-                    IO.println("No Game Exists With That ID In The Library...");
-                    Thread.sleep(1000);
-                    break;
-                }
+            if(choice==0) break;
+
+            if(choice<0){
+                IO.println("Invalid Input...");
+                continue;
+            }
+
+            int found = findID(choice);
+            if (found!=-1){
+                gamelist.remove(found);
+                IO.println("Game Removed Successfully...");
+                Thread.sleep(1000);
+                break;
+            }
+            else {
+                IO.println("No Game Exists With That ID In The Library...");
+                Thread.sleep(1000);
+                continue;
+            }
             }
         }
-    }
 
     private int findID(int target){
-        int left = 0, right = target-1;
-        while (left<right){
-            int mid = (left+(right-left))/2;
-            if(target>mid) left=mid+1;
-            else if(target<mid) right=mid-1;
+        int left = 0, right = gamelist.size()-1;
+        while (left<=right){
+            int mid = left+(right-left)/2;
+            if(target>gamelist.get(mid).getID()) left=mid+1;
+            else if(target<gamelist.get(mid).getID()) right=mid-1;
             else return mid;
         }
         return -1;
     }
-
 }
 
