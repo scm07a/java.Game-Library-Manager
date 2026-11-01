@@ -41,8 +41,7 @@ public class MainMenu {
                     break;
                 
                 case 3:
-                    Utils.clearScreen();
-                    Utils.comingSoon();
+                    gameInterface.removeGame();
                     break;
             
                 default:
