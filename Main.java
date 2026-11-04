@@ -6,5 +6,5 @@ void main(){
     }
     catch(Exception e){
         IO.println(e.getMessage());
-    }
+    } 
 }

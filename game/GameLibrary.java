@@ -2,17 +2,17 @@ package game;
 
 import java.util.ArrayList;
 
-import utils.Utils;
+import utils.ConsoleUtils;
 
-public class Interface {
+public class GameLibrary {
     private int nextID=1;
     private ArrayList<Game> gamelist = new ArrayList<>();
     private String buff = "";
     
 
-    public Interface(){}
-    public void addGame()throws InterruptedException{
+    public GameLibrary(){}
 
+    public void addGame()throws InterruptedException{
     String title = IO.readln("Title: ");
     String genre = IO.readln("Genre: ");
     String dev = IO.readln("Developer: ");
@@ -24,10 +24,10 @@ public class Interface {
         IO.println("Game Added Successfully...");
         nextID++;
         Thread.sleep(1000);
-    }
+        }
     catch(Exception e){
         IO.println(e.getMessage());
-    }
+        }
     }
 
     private void printGame(Game gm){
@@ -49,7 +49,7 @@ public class Interface {
         for (Game games: gamelist){
             printGame(games);
         }
-        Utils.enterContinue();
+        ConsoleUtils.enterContinue();
         
     }
 

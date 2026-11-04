@@ -1,12 +1,12 @@
 package ui;
-import utils.Utils;
-import game.Interface;
+import utils.ConsoleUtils; 
+import game.GameLibrary;
 
 public class MainMenu {
-    private Interface gameInterface = new Interface();
+    private GameLibrary gameLib = new GameLibrary();
     
     public void showMainMenu(){
-        Utils.clearScreen();
+        ConsoleUtils.clearScreen();
         IO.println("=== Game Library Manager ===");
         IO.println("0. Exit");
         IO.println("1. Add Game");
@@ -20,10 +20,10 @@ public class MainMenu {
             int choices = Integer.parseInt(IO.readln("Choice: "));
             switch (choices) {
                 case 0:
-                    Utils.clearScreen();
+                    ConsoleUtils.clearScreen();
                     while (true){
-                        IO.print("Are You Sure You Want To Exit?(Y/n): ");
-                        String e=IO.readln().trim().toLowerCase();
+                        String e=
+                        IO.readln("Are You Sure You Want To Exit?(Y/n): ").trim().toLowerCase();
                         if(e.equals("y")) return;
                         else if (e.equals("n")) break;
                         else IO.println("Invalid Input Try Again");
@@ -31,17 +31,18 @@ public class MainMenu {
                     break;
 
                 case 1:
-                    Utils.clearScreen();
-                    gameInterface.addGame();
+                    ConsoleUtils.clearScreen();
+                    gameLib.addGame();
                     break;
 
                 case 2:
-                    Utils.clearScreen();
-                    gameInterface.showAllGames();
+                    ConsoleUtils.clearScreen();
+                    gameLib.showAllGames();
                     break;
                 
                 case 3:
-                    gameInterface.removeGame();
+                    ConsoleUtils.clearScreen();
+                    gameLib.removeGame();
                     break;
             
                 default:
