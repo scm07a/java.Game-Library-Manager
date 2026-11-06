@@ -53,7 +53,7 @@ public class GameLibrary {
         
     }
 
-    public void removeGame()throws InterruptedException{ // TODO: Broken Method Remember To Fix 
+    public void removeGame()throws InterruptedException{
         if (gamelist.isEmpty()){
             IO.println("Empty List...");
             return;
