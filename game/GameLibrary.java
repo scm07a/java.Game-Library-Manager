@@ -1,11 +1,9 @@
 package game;
 
 import java.util.ArrayList;
-
 import utils.ConsoleUtils;
 
 public class GameLibrary {
-    private int nextID=1;
     private ArrayList<Game> gamelist = new ArrayList<>();
     private String buff = "";
     
@@ -19,10 +17,9 @@ public class GameLibrary {
     String pub = IO.readln("Publisher: ");
     try{
         double price = Double.parseDouble(IO.readln("Price: $"));
-        Game gm = new Game(nextID,title, genre, price, dev, pub);
+        Game gm = new Game(title, genre, price, dev, pub);
         gamelist.add(gm);
         IO.println("Game Added Successfully...");
-        nextID++;
         Thread.sleep(1000);
         }
     catch(Exception e){
@@ -53,7 +50,7 @@ public class GameLibrary {
         
     }
 
-    public void removeGame()throws InterruptedException{ // TODO: Broken Method Remember To Fix 
+    public void removeGame()throws InterruptedException{
         if (gamelist.isEmpty()){
             IO.println("Empty List...");
             return;
